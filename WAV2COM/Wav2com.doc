@@ -1,0 +1,241 @@
+
+
+                              .
+                          .  Ü.ÜßÜ.Ü  .
+                         .  ß.ßÜßÜßÜß.
+                           ßÜ_wav2com ß
+                           . ÜßÜßÜß.Üß  .
+
+                              . ß
+
+
+                           W.A.V.2.c.o.m
+
+                           release 95.04
+                            (03/21/95)
+
+
+
+
+
+          (c)1995, zeroBIT technology research and development
+
+
+---------------------------------------------------------------------------
+
+0.INtROdUCTiON
+
+  Welcome to WAV2com !
+
+  We are convinced many of you (usr) are familiar with some famous games,
+  like Prince_of_Persia(1990), or One_Must_Fall(1994).
+  What do you think about their on-line music ? Pretty neat Ha ?!
+
+  Every body loves to hear sound or music. Right ? (no_need_to_answer!)
+  And with technology existing today, you can have a sound card
+  which can bring more "life-like" to your PC.
+  Well... If you dont have a sound-card, your PC cant give you
+  a sophisticated instrumental music. But dont hide your face behind
+  your monitor then. You still can have a scream out of your PC,
+  using its internal speaker. How ? Using your MS-Windows' .WAV files!
+
+
+1.WhAT iS WAv2CoM
+
+  WAV2com is a file-converter, converting a file with a .WAV or .SND format,
+  a file which contain digitized analog sound data to be a .COM file format,
+  a type of file which you can load directly from DOS.
+
+
+2.HoW tO USe WAV2cOm
+
+  a. load Wav2COM.exe by typing
+
+     WAV2COM<enter>
+
+  b. type filename of .WAV you would like to convert
+
+     Filename [.WAV]         : sample1_<enter>
+
+     If you don't give the filename an extension,
+     then .WAV extension will be given.
+     The size of input file must not be greater than 64975 bytes.
+     Different drive and path names are acceptable in this dialog.
+
+  c. type filename of .COM to be created
+
+     Filename [sample1.COM]  : _
+
+     If you don't give a filename in this dialog then WAV2com will
+     assumed that you received the suggested output filename in the
+     bracket. However, if you would like to change filename, just
+     type in the name you desired. And still, if don't give the
+     filename a extension, .COM extension will be given.
+     Different drive and path names are also acceptable in this dialog.
+
+  d. wait for WAV2com accomplishing its job
+
+     transferring sample1.WAV to sample1.COM [34291 bytes]... ( 34%)
+
+     Just wait until the percentage counter on right side reach 100%.
+     After that, unless an unexpected error occur, sample1.COM
+     will be created and ready to run.
+
+
+3.sYStEM rEQUiREMeNTS
+
+  To be able to run properly, WAV2com needs an IBM PC, PC/XT,
+  PC/AT or PS/2, and the compatible of them, which are based
+  on 80x86 system. Most of PC built today has an internal timer
+  and a PC internal speaker. So unless your PC is made out of stone
+  (like the one Mr.Flinstones has), you must have no problem.
+  640Kb of attached memory, with at least 64 KB available.
+  And MSDOS or PCDOS Version 3.0 or later.
+
+4.COmmUNIcAtIOn WIth DOS
+
+  WAV2com can tell DOS, wether converting job was taken correctly or not.
+
+  These are ERRORLEVEL codes passed from WAV2com to DOS :
+  _________________________________________________________________________
+
+  Success                   0  Convertion works fine and no error occured
+
+  Checksum error            1  WAV2com find an error on WAV2com.Exe file.
+                               .COM file creation will be aborted.
+                               Because if .COM file still be created,
+                               when it run, it can lead to a system crash.
+
+  Cancelled by usr          2  User cancelled the convertion by giving
+                               no filename to be processed.
+
+  File not found            4  WAV. file as the input file can not be found.
+
+  WAV file access error     8  WAV. file was founded, but can not be opened.
+
+  File too big             16  WAV. file is bigger than 64975 bytes, so it
+                               couldn't be processed. The maximum size of
+                               any .COM file is 64kb, which is the size of
+                               one RAM segment. If the file is processed,
+                               the .COM would be too big to fit in one
+                               segment.
+
+  COM file access error    32  Can not open a new .COM file. This could
+                               happen sometimes. i.e. if your directory
+                               is full or your disk is write protected.
+
+  File process error       64  There is a error occuring during the conversion
+                               time. .COM can still be created, because it
+                               will be closed before WAV2com return to DOS.
+
+  File closing error      128  This error raise when WAV2com found some
+                               failures in closing the .COM file.
+                               .COM file may not be complete, but ussualy
+                               it still can be executed.
+  _________________________________________________________________________
+
+
+5.BUGS AND DRAWBACKS
+  Well.. we all know that nothing is perfect. We have tested
+  WAV2com to be ran at as many system as possible. And we
+  have found some noticable things.
+  a. .COM files which made by WAV2com are seldom compressable by
+     ICE COMcompressor or COMtoEXE-LZEXE. We've tried to compress
+     output file in such methods, but the result is unpredictable.
+     Sometimes (many times) when we ran the compressed file,
+     the system become freeze. And even if it is not, and the compression
+     became successfull, the compression rate often more than 10%.
+     This maybe because the complexity of data stream on .WAV file.
+  b. We have made WAV2com as mobile and downward-compatible as it can be.
+     We have substitute some 80286-above machine code with 8086/8088 code.
+     But we cannot guarantee that it will work properly on every PCs or XTs.
+     The best way to find out is try it on the system it self.
+
+
+aPPenDix.A:
+  ---------
+   CREDITS
+  ---------
+     Software Developers             Andy Sunaryo (assembler)
+                                     Arief "mirage" Nugraha (pascal)
+     Documentation                   Riana "radix" Pujiwati
+     Software Test & Sample          Donny "pixel" Masdono
+
+
+     ZeroBit would like to give special thanks to Mr.Yo Wei Tjong
+     for providing us (well.. all of us) a great (public-domain)
+     routine to access PC internal speaker.
+
+
+aPPenDix.B:
+  --------------------
+  .COM DATA STRUCTURE
+  --------------------
+  We believe that if you some how would like to link WAV2com's .COM file
+  onto your own source code, these information will be useful.
+
+  address/offset        type                                           info
+  hex    desimal
+  _________________________________________________________________________
+
+  0000h   00000d        word                                    near jumper
+  0002h   00002d        chars[1..42]                   WAV2com .COM file-id
+                        'WAVtalker/'+version_number
+  00A8h   00168d        word                                  .WAV filesize
+  0114h   00276d        byte                        8086/8088 return opcode
+                        0C3h                                    near return
+  0012Ch  00300d        chars[1..eof]                       WAV data stream
+  _________________________________________________________________________
+
+---------------------------------------------------------------------------
+
+WAV2com was written in Turbo Pascal 5.5 and Turbo Assembler 1.0.
+The average processing rate is now about 20 kbytes/sec (on harddisk).
+We're now in progress on rewriting WAV2com to speed up the
+processing rate, also support parameters and be able to access AdLib,
+SoundBlaster Cards and their compatibles.
+
+---------------------------------------------------------------------------
+
+                           ___WARNING!___
+
+ZeroBit is not responsible at any direct, indirect, incidental, or
+consequential damages resulting from any misuse or defect in this
+software. By using this software, you have indicated your acceptance
+to all the risk there is.
+
+---------------------------------------------------------------------------
+
+We believe progress is made by dreams, hardwork and commitment, and we
+do believe it is also built by mistakes, errors and (ugh) stupidities.
+So don't be reluctant to give us your opinion about this product. We are
+_very_ thankful, grateful and honoured for any critics and suggestions.
+
+We have experience that two heads always better than one. So if you
+have any idea and would like to share it, or have someone to talk about it,
+
+you can reach us at :
+
+
+        ÚÄÄÄÄÄÄÄÄÄÄÄ¿
+        ³²²²²       ³Û
+        ³           ³Û
+ ÚÄÄÄÄÄÄÄÄÄÄÄ¿0 o   ³Û    ZeroBit Technology Research & Development
+ ³ÛÛÛÛ       ³Û     ³Û    Po.Box 268
+ ³           ³Û     ³Û    Tangerang 15001
+ ³     0 o   ³ÄÄÄÄÄÄÙÛ
+ ³     Û     ³Ûßßßßßßß    Phone. (021)553-6878
+ ³     Û     ³Û
+ ÀÄÄÄÄÄÄÄÄÄÄÄÙÛ
+   ßßßßßßßßßßßß
+
+
+--------------------------------------------------------------------------
+
+  Turbo Pascal 5.5 and Turbo Assembler 1.0 are trade-marks copyrighted
+  by Borland International Incorporation. IBM PC, PC/XT, PC/AT, PS/2 and
+  PCDOS are trade-marks of International Business Machines.
+  MSDOS is a trade-mark of Microsoft Corp.
+
+--------------------------------------------------------------------------
+radix:95/03/21
